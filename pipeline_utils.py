@@ -91,8 +91,8 @@ def create_features(df):
     df['hashtag_count'] = df['hashtags'].apply(len)
     df['description_word_count'] = df['description'].apply(lambda x: len(str(x).split()))
 
-    # Define "Fast Sale" (target variable, true if sold in < 10 days)
-    df['fast_sale'] = df['days_to_sell'] < 10
+    # Define "Fast Sale" (target variable, true if sold in < 3 days)
+    df['fast_sale'] = df['days_to_sell'] < 3
 
     # Feature: Price relative to the average for that category
     df['category_avg_price'] = df.groupby('category')['item_price'].transform('mean')

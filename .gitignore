@@ -1,2 +1,6 @@
 # Private Customer Data
 *.csv
+
+# environment
+
+*.venv

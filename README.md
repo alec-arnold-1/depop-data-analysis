@@ -4,7 +4,7 @@ A comprehensive machine learning pipeline for analyzing Depop marketplace sales 
 
 ## Project Overview
 
-This project analyzes Depop sales data to understand what factors drive fast sales and builds a predictive model to identify items likely to sell quickly. The pipeline processes raw sales data, engineers meaningful features, and trains an XGBoost classifier to predict fast sales (items sold in less than 10 days).
+This project analyzes Depop sales data to understand what factors drive fast sales and builds a predictive model to identify items likely to sell quickly. The pipeline processes raw sales data, engineers meaningful features, and trains an XGBoost classifier to predict fast sales (items sold in less than 3 days).
 
 ## Key Features
 
