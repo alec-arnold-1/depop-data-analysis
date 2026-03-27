@@ -24,27 +24,10 @@ ML_Pipeline_EDA/
 ├── data/                      # Raw depop sales data (CSV files)
 └── README.md                  # This file
 ```
-
-## Technical Skills Demonstrated
-
-- **Data Processing**: Pandas, data cleaning, feature engineering
-- **Machine Learning**: XGBoost, model evaluation, hyperparameter tuning
-- **Data Visualization**: Matplotlib, Seaborn, comprehensive EDA
-- **Software Engineering**: Modular code design, reusable functions
-- **Statistical Analysis**: Correlation analysis, outlier detection
-- **Time Series Analysis**: Temporal patterns and seasonality
-
-## Getting Started
-
-### Prerequisites
-
-- Python 3.8+
-- Required packages: pandas, numpy, matplotlib, seaborn, scikit-learn, xgboost
-
 ### Installation
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn xgboost
+pip install -r requirements.txt
 ```
 
 ### Running the Project
@@ -88,3 +71,18 @@ This analysis provides actionable insights for Depop sellers:
 - **Scikit-learn**: Machine learning algorithms and evaluation
 - **XGBoost**: Gradient boosting classifier
 
+## Technical Challenges
+
+**Small Sample Size (N = 301)**: With only 301 total observations, the model is prone to high variance.
+
+**Class Imbalance & Median Thresholding**: Initial target variable (fast sale being less than 10 days) had a heavy bias towards fast sales (72%). I redefined the target variable based on the statistical median (3 days) in order to provide a more honest assessment of listing performance.
+
+**Lack of Features**: Depop as a marketplace relies heavily on other features not found in the exports sales data CSVs such as quality of photos, frequency of the seller creating listings, and review rating. This likely accounts for the ceiling of predictive accuracy.
+
+**Selection Bias**: The dataset only contains successful transactions (tems that ended up selling). It does not ionclude active listings that have failed to sell. The model is trained to distinguish between fast and slow sales, but cannot predict no sales. The model potentially ignores the features that lead to a total lack of purchase.
+
+## Future Steps
+
+**Computer Vision Integration**: Extract features like brightness, background consistency, etc to account for the visual aspect of Depop listings.
+
+**Deployment as a Web App**: Wrap the pipeline into a FastAPI backend with a React frontend, allowing users to import and automatically see visualizations of their sales data. Also implement feature to enter a draft listing to receive a prediction on sale velocity based on factors like price.
